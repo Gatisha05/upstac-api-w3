@@ -24,30 +24,28 @@ public class ConsultationService {
     @Transactional
     public Consultation assignForConsultation( TestRequest testRequest, User doctor) {
 
-        Consultation consultation = new Consultation();
-        consultation.setDoctor(doctor);
-        consultation.setRequest(testRequest);
         //Implement this method to assign the consultation service
         // create object of Consultation class and use the setter methods to set doctor and testRequest details
         // make use of save() method of consultationRepository to return the Consultation object
-        return consultationRepository.save(consultation); // replace this line with your code
 
+        Consultation consultation = new Consultation();
+        consultation.setDoctor(doctor);
+        consultation.setRequest(testRequest);
+        return consultationRepository.save(consultation); // replace this line with your code
 
     }
 
     public Consultation updateConsultation(TestRequest testRequest , CreateConsultationRequest createConsultationRequest) {
 
+        //Implement this method to update the consultation
+        // create an object of Consultation and make use of setters to set Suggestion, Comments, and UpdatedOn values
+        // make use of save() method of consultationRepository to return the Consultation object
+
         Consultation consultation = consultationRepository.findByRequest(testRequest).get();
         consultation.setSuggestion(createConsultationRequest.getSuggestion());
         consultation.setComments(createConsultationRequest.getComments());
         consultation.setUpdatedOn(LocalDate.now());
-        //Implement this method to update the consultation
-        // create an object of Consultation and make use of setters to set Suggestion, Comments, and UpdatedOn values
-        // make use of save() method of consultationRepository to return the Consultation object
         return consultationRepository.save(consultation); // replace this line with your code
 
-
     }
-
-
 }

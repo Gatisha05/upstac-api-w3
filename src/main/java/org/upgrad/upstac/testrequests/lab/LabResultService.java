@@ -29,6 +29,7 @@ public class LabResultService {
         //Implement this method to create the lab result module service
         // create object of LabResult class and use the setter methods to set tester and testRequest details
         // make use of saveLabResult() method to return the LabResult object
+
         LabResult labResult = new LabResult();
         labResult.setTester(tester);
         labResult.setRequest(testRequest);

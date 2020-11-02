@@ -53,8 +53,8 @@ public class LabRequestController {
         //Implement this method to return the list of test requests having status as 'INITIATED'
         //Make use of the findBy() method from testRequestQueryService class to get the list
         // For reference check the method requestHistory() method from TestRequestController class
-            return testRequestQueryService.findBy(RequestStatus.INITIATED); // replace this line with your code
 
+        return testRequestQueryService.findBy(RequestStatus.INITIATED); // replace this line with your code
     }
 
     @GetMapping
@@ -69,9 +69,7 @@ public class LabRequestController {
         User user = userLoggedInService.getLoggedInUser();
         return testRequestQueryService.findByTester(user); // replace this line with your code
 
-
     }
-
 
     @PreAuthorize("hasAnyRole('TESTER')")
     @PutMapping("/assign/{id}")
@@ -84,13 +82,10 @@ public class LabRequestController {
         // Refer to the method createRequest() from the TestRequestController class
 
         try {
-
             User user = userLoggedInService.getLoggedInUser();
             TestRequest testRequest = new TestRequest();
             testRequest = testRequestUpdateService.assignForLabTest(id, user);
-
             return testRequest; // replace this line of code with your implementation
-
 
         }catch (AppException e) {
             throw asBadRequest(e.getMessage());
@@ -109,7 +104,6 @@ public class LabRequestController {
             User user = userLoggedInService.getLoggedInUser();
             TestRequest testRequest = new TestRequest();
             testRequest = testRequestUpdateService.updateLabTest(id, createLabResult, user);
-
             return testRequest; // replace this line of code with your implementation
 
         } catch (ConstraintViolationException e) {

@@ -69,11 +69,7 @@ public class ConsultationController {
         User user = userLoggedInService.getLoggedInUser();
         return testRequestQueryService.findByDoctor(user); // replace this line with your code
 
-
-
     }
-
-
 
     @PreAuthorize("hasAnyRole('DOCTOR')")
     @PutMapping("/assign/{id}")
